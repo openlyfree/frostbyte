@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package io.github.openlyfree;
+
+option java_multiple_files = true;
+
+message Vector3 {
+  float x = 1;
+  float y = 2;
+  float z = 3;
+}
+
+message Player {
+  string user = 1;
+  Vector3 pos = 2;
+  Vector3 rot = 3;
+  uint32 health = 4;
+  uint32 anim = 5;
+  uint32 kills = 6;
+  uint32 deaths = 7;
+}
+
+message Bullet {
+  string by = 1;
+  uint32 damage = 2;
+  string object_hit = 3;
+}
+
+message GamePacket {
+  int64 timestamp = 1;
+  oneof payload {
+    Player player_update = 2;
+    Bullet bullet_shot = 3;
+    string left = 4;
+  }
+}

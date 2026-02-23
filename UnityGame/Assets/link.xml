@@ -1,0 +1,8 @@
+<linker>
+  <!-- Prevent IL2CPP from stripping Google.Protobuf (required for WebGL) -->
+  <assembly fullname="Google.Protobuf" preserve="all"/>
+  <!-- Preserve generated protobuf types -->
+  <assembly fullname="Assembly-CSharp" preserve="all">
+    <type fullname="Io.Github.Openlyfree.*" preserve="all"/>
+  </assembly>
+</linker>
